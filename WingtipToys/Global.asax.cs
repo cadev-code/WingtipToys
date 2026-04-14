@@ -6,6 +6,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using System.Data.Entity;
+using WingtipToys.Models;
 
 namespace WingtipToys
 {
@@ -16,6 +18,9 @@ namespace WingtipToys
             // Código que se ejecuta al iniciar la aplicación
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Inicializar la base de datos con datos de ejemplo
+            Database.SetInitializer(new ProductDatabaseInitializer());
         }
     }
 }
